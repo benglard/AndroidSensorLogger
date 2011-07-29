@@ -3,11 +3,19 @@ package com.sstp.androidsensorlogger;
 import java.util.TimerTask;
 
 
+
 public class CameraTimer extends TimerTask {
+	
+	private int picCounter;
+	
+	CameraTimer(int counter)
+	{
+		picCounter = counter;
+	}
+	
 	public void run()
 	{
-        CameraActivity ca = new CameraActivity();
-        ca.takePicture();
+        CameraSWAGActivity cs = new CameraSWAGActivity(picCounter);
     }
 	
 }

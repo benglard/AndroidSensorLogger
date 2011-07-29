@@ -39,6 +39,7 @@ public class AndroidSensorLoggerActivity extends Activity implements LocationLis
     private ArrayList<String> chosenEncoding = new ArrayList<String>();
     private int speechCounter;
     private String time;
+    private int pcounter = 0;
 
 	/** Called when the activity is first created. */
     @Override
@@ -77,9 +78,9 @@ public class AndroidSensorLoggerActivity extends Activity implements LocationLis
     
     public void takePic()
     {	
-        ToneTimer ct = new ToneTimer();
-        // Wait 10 minutes, then begin checking for lost gps service every 10 seconds
-        new Timer().scheduleAtFixedRate(ct , 600000, 10000);
+    	CameraTimer ct = new CameraTimer(pcounter);
+        new Timer().scheduleAtFixedRate(ct , 30000, 10000);
+        this.pcounter++;
     }
     
     public String getUTCTime()
